@@ -123,7 +123,7 @@ instruction_display = True
 def can_move(x, y):
     if y < 0 or y >= len(tilemap) or x < 0 or x >= len(tilemap[0]):
         return False
-    return tilemap[y][x] in ['.', 'D','A','B']
+    return tilemap[y][x] in ['.', 'D']
 
 # Buttons
 def draw_button(text, x, y, width, height, color, action=None):
@@ -198,41 +198,7 @@ while running:
                 elif event.key in (pygame.K_d, pygame.K_RIGHT) and can_move(player_tile_x + 1, player_tile_y):
                     move_x = TILE_SIZE
                 elif event.key == pygame.K_e:
-                    if current_state == "start":
-                        if tilemap[player_tile_y][player_tile_x] == 'D':
-                            draw_dialog("Choose an action:", ["[E] Explore", "[E] Shout"])
-                            choice = "explore"
-                            next_state = get_next(current_state, choice)
-                            if next_state:
-                                set_current_state(next_state)
-                            else:
-                                print("Invalid choice.")
-                        elif tilemap[player_tile_y][player_tile_x] == '.':
-                            print("You shouted!")
-                            current_state = "echo"
-                            set_current_state(current_state)
-                            if is_ending(current_state):
-                                print("Game ended at:", current_state)
-                                game_over = True
-                    elif current_state == "atrium":
-                        if tilemap[player_tile_y][player_tile_x] == 'A':  # Ascending staircase
-                            draw_dialog("Choose an action:", ["[E] Go Upstairs"])
-                            choice = "upstairs"
-                            next_state = get_next(current_state, choice)
-                            if next_state:
-                                set_current_state(next_state)
-                            else:
-                                print("Invalid choice.")
-                        elif tilemap[player_tile_y][player_tile_x] == 'B':  # Descending staircase
-                            draw_dialog("Choose an action:", ["[E] Go Downstairs"])
-                            choice = "downstairs"
-                            next_state = get_next(current_state, choice)
-                            if next_state:
-                                set_current_state(next_state)
-                            else:
-                                print("Invalid choice.")
-                        elif tilemap[player_tile_y][player_tile_x] == '.':
-                            print("Nothing happens.")
+                    choice_made = True
 
     if move_x != 0:
         step = vel if move_x > 0 else -vel
@@ -266,9 +232,9 @@ while running:
     if instruction_display:
         draw_instructions()
 
-    # Display floor prompt
-    scene = story[current_state]
-    draw_dialog(scene["prompt"], [])
+    if choice_made:
+        scene = story[current_state]
+        draw_dialog(scene["prompt"], list(scene["options"].keys()))
 
     pygame.display.flip()
 

@@ -1,7 +1,7 @@
-WWWWWWWWWW
-W........W
-W..BBBB..W
-W..B..B..W
-W..BBBB..W
-W....D...W
-WWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWW
+W.................W
+W..BBBB......BBBB.W
+W..B..B......B..B.W
+W..BBBB......BBBB.W
+W....D...........W
+WWWWWWWWWWWWWWWWWWWW
