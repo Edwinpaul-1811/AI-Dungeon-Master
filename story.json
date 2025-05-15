@@ -1,0 +1,68 @@
+{
+  "start": {
+    "prompt": "You awaken in a crumbling temple surrounded by vines and strange whispers. What do you do?",
+    "options": {
+      "explore": "atrium",
+      "shout": "echo"
+    }
+  },
+  "atrium": {
+    "prompt": "You reach a grand atrium with two staircases. One ascends into shadows, the other descends into glowing mist.",
+    "options": {
+      "upstairs": "library",
+      "downstairs": "crypt"
+    }
+  },
+  "echo": {
+    "prompt": "Your shout echoes... then silence. Suddenly, glowing eyes appear in the dark. Too late, you realize your mistake.",
+    "options": {}
+  },
+  "library": {
+    "prompt": "Dusty tomes line the shelves. A glowing book floats in the center. Do you open it or leave?",
+    "options": {
+      "open": "curse",
+      "leave": "balcony"
+    }
+  },
+  "crypt": {
+    "prompt": "You descend into the crypt. A ghostly figure beckons you toward an ancient relic.",
+    "options": {
+      "approach": "guardian",
+      "run": "pitfall"
+    }
+  },
+  "curse": {
+    "prompt": "The book curses you. Time bends and you are lost forever in the library. Game Over.",
+    "options": {}
+  },
+  "balcony": {
+    "prompt": "You find a hidden balcony overlooking a valley with a glowing portal. Escape?",
+    "options": {
+      "jump": "portal",
+      "retreat": "atrium"
+    }
+  },
+  "guardian": {
+    "prompt": "The ghost reveals itself as the temple's guardian. You are deemed worthy and offered a wish.",
+    "options": {
+      "wish for power": "corruption",
+      "wish for peace": "ascend"
+    }
+  },
+  "pitfall": {
+    "prompt": "In your panic, you fall into a trap. Spikes end your journey. Game Over.",
+    "options": {}
+  },
+  "portal": {
+    "prompt": "You leap through the portal and awaken in a lush, safe haven. You win!",
+    "options": {}
+  },
+  "corruption": {
+    "prompt": "Power overwhelms you. You become the new cursed guardian. Your story ends here.",
+    "options": {}
+  },
+  "ascend": {
+    "prompt": "Peace surrounds you. You ascend to the realm of light. You win!",
+    "options": {}
+  }
+}
